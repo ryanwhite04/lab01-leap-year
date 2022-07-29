@@ -3,20 +3,8 @@
 #include <stdio.h>
 #include <errno.h>
 
-/* return 0 (false) or 1 (true), depending on whether
- * `year` is a leap year or not.
- */
-int is_leap(long year) {
-
-  if (year % 4 != 0) {
-    return 0;
-  }
-
-  if (year % 100 == 0) {
-    return 1;
-  }
-
-  return 0;
+int is_leap(long y) {
+    return !((y%4) || (!(y%100) && y%400));
 }
 
 int main(int argc, char **argv) {
